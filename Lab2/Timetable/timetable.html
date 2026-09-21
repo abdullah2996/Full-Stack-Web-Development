@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSCS-V-A (Shift-I) Class Timetable | Air University</title>
+    <!-- Google Fonts for crisp, human-designed typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="timetable.css">
+  
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Banner -->
+        <header class="header">
+            <div>
+                <span class="brand-subtitle">Air University</span>
+                <h1 class="title">BSCS-V-A <span class="badge-shift">(Shift-I)</span></h1>
+            </div>
+            <div class="academic-info">
+                <p><strong>Department of Computer Science</strong></p>
+                <p>5th Semester Class Schedule</p>
+            </div>
+        </header>
+
+        <!-- Main Timetable Grid -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <!-- Time Slots -->
+                    <tr>
+                        <th>Day</th>
+                        <th>08:00am-09:00am</th>
+                        <th>09:00am-10:00am</th>
+                        <th>10:00am-11:00am</th>
+                        <th>11:00am-12:00pm</th>
+                        <th>12:00pm-01:00pm</th>
+                        <th>01:00pm-02:00pm</th>
+                        <th>02:00pm-03:00pm</th>
+                        <th>03:00pm-04:00pm</th>
+                        <th>04:00pm-05:00pm</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- MONDAY -->
+                    <tr>
+                        <td class="day-col">Mo</td>
+                        <td>
+                            <div class="cell-card course-ai">
+                                <div class="instructor">CS-Ms Maryam Wardah</div>
+                                <div class="subject-title">Artificial Intelligence</div>
+                                <div class="room-tag">C-205 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-os">
+                                <div class="instructor">CS-Ms Warda Aslam<br>CS-Ms Eeman Fatima</div>
+                                <div class="subject-title">Operating Systems</div>
+                                <div class="room-tag">Lecture Hall 01</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-daa">
+                                <div class="instructor">CS-Mr Muhammad Junaid Nazar</div>
+                                <div class="subject-title">Design and Analysis of Algorithms</div>
+                                <div class="room-tag">C-202 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-la">
+                                <div class="instructor">Maths-Dr Waqas Sarwar Abbasi</div>
+                                <div class="subject-title">Linear Algebra</div>
+                                <div class="room-tag">C-301 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td>
+                            <div class="cell-card course-mgmt">
+                                <div class="instructor">AUSOM-Ms Ayesha Munir-VFM</div>
+                                <div class="subject-title">Introduction to Management</div>
+                                <div class="room-tag">C-303 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                    </tr>
+
+                    <!-- TUESDAY -->
+                    <tr>
+                        <td class="day-col">Tu</td>
+                        <!-- Merged 3 slots for 3-Hour AI Lab -->
+                        <td colspan="3">
+                            <div class="cell-card course-ai" style="min-height: 110px;">
+                                <div class="instructor" style="font-size: 0.8rem;">CS-Ms Maryam Wardah</div>
+                                <div class="subject-title" style="font-size: 1rem; margin: 0.2rem 0;">Artificial Intelligence Lab</div>
+                                <div class="room-tag" style="font-size: 0.75rem;">Lab 5 A Block (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td>
+                            <div class="cell-card course-la">
+                                <div class="instructor">Maths-Dr Waqas Sarwar Abbasi</div>
+                                <div class="subject-title">Linear Algebra</div>
+                                <div class="room-tag">C-203 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-daa">
+                                <div class="instructor">CS-Mr Muhammad Junaid Nazar</div>
+                                <div class="subject-title">Design and Analysis of Algorithms</div>
+                                <div class="room-tag">C-302 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-os">
+                                <div class="instructor">CS-Ms Warda Aslam<br>CS-Ms Eeman Fatima</div>
+                                <div class="subject-title">Operating Systems</div>
+                                <div class="room-tag">Lecture Hall 01</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                    </tr>
+
+                    <!-- WEDNESDAY -->
+                    <tr>
+                        <td class="day-col">We</td>
+                        <td>
+                            <div class="cell-card course-daa">
+                                <div class="instructor">CS-Mr Muhammad Junaid Nazar</div>
+                                <div class="subject-title">Design and Analysis of Algorithms</div>
+                                <div class="room-tag">C-302 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                        <!-- Merged 3 slots for 3-Hour OS Lab -->
+                        <td colspan="3">
+                            <div class="cell-card course-os" style="min-height: 110px;">
+                                <div class="instructor" style="font-size: 0.8rem;">CS-Ms Warda Aslam</div>
+                                <div class="subject-title" style="font-size: 1rem; margin: 0.2rem 0;">Operating Systems Lab</div>
+                                <div class="room-tag" style="font-size: 0.75rem;">Lab 13 C Block (3rd Floor) (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-fwd">
+                                <div class="instructor">CS-Mr Hafiz Obiad Ullah Khan / CS-Mr Asim Ali Fayyaz</div>
+                                <div class="subject-title">Full Stack Web Development</div>
+                                <div class="room-tag">Lecture Hall 01, C-206 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                    </tr>
+
+                    <!-- THURSDAY -->
+                    <tr>
+                        <td class="day-col">Th</td>
+                        <td class="free-slot"></td>
+                        <td>
+                            <div class="cell-card course-ai">
+                                <div class="instructor">CS-Ms Maryam Wardah</div>
+                                <div class="subject-title">Artificial Intelligence</div>
+                                <div class="room-tag">C-202 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <!-- Merged 3 slots for 3-Hour Full Stack Web Dev Lab -->
+                        <td colspan="3">
+                            <div class="cell-card course-fwd" style="min-height: 110px;">
+                                <div class="instructor" style="font-size: 0.8rem;">CS-Mr Hafiz Obiad Ullah Khan</div>
+                                <div class="subject-title" style="font-size: 1rem; margin: 0.2rem 0;">Full Stack Web Development Lab</div>
+                                <div class="room-tag" style="font-size: 0.75rem;">Lab 5 A Block (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-fwd">
+                                <div class="instructor">CS-Mr Hafiz Obiad Ullah Khan / CS-Mr Asim Ali Fayyaz</div>
+                                <div class="subject-title">Full Stack Web Development</div>
+                                <div class="room-tag">Lecture Hall 01, C-306 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                    </tr>
+
+                    <!-- FRIDAY -->
+                    <tr>
+                        <td class="day-col">Fr</td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                        <td>
+                            <div class="cell-card course-mgmt">
+                                <div class="instructor">AUSOM-Ms Ayesha Munir-VFM</div>
+                                <div class="subject-title">Introduction to Management</div>
+                                <div class="room-tag">C-302 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-la">
+                                <div class="instructor">Maths-Dr Waqas Sarwar Abbasi</div>
+                                <div class="subject-title">Linear Algebra</div>
+                                <div class="room-tag">C-301 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-card course-adv">
+                                <div class="instructor">CS-Ms Eeman Fatima</div>
+                                <div class="subject-title">Advisory Class</div>
+                                <div class="room-tag">C-202 (Shift-I)</div>
+                            </div>
+                        </td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                        <td class="free-slot"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>
