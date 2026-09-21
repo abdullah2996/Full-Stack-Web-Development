@@ -1,0 +1,208 @@
+/* basic reset  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+/* navbar  */
+.navbar {
+    background-color: #ffffff;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-logo {
+    height: 35px;
+}
+
+.search-box {
+    height: 35px;
+    width: 240px;
+    border-radius: 20px;
+    border: none;
+    background-color: #f0f2f5;
+    padding: 0 15px;
+    outline: none;
+}
+
+.nav-right p {
+    display: inline;
+    margin-left: 25px;
+    color: #1877f2;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* main container */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 40px;
+    gap: 60px;
+}
+
+/* left side - heading and tagline */
+.left-side {
+    max-width: 500px;
+}
+
+.fb-heading {
+    color: #1877f2;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.fb-tagline {
+    font-size: 22px;
+    line-height: 1.4;
+    color: #1c1e21;
+}
+
+/* right side - login box */
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-box {
+    background-color: #ffffff;
+    width: 350px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 12px;
+    padding: 0 15px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 17px;
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    height: 48px;
+    background-color: #1877f2;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #166fe5;
+}
+
+.forgot-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #1877f2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #dadde1;
+}
+
+.create-account-btn {
+    display: block;
+    margin: 0 auto;
+    background-color: #42b72a;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.create-account-btn:hover {
+    background-color: #36a420;
+}
+
+.create-page-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 25px;
+    color: #1c1e21;
+}
+
+/* ===== footer ===== */
+.footer {
+    padding: 20px 40px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #737373;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #737373;
+}
+
+/* responsive for small screens  */
+@media (max-width: 700px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .fb-heading {
+        font-size: 45px;
+    }
+
+    .search-box {
+        width: 150px;
+    }
+}
