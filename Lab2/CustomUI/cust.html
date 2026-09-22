@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevPulse // Developer System Hub</title>
+  <link rel="stylesheet" href="cust.css">
+</head>
+<body>
+
+  <!-- Theme Controller Container utilizing CSS :has() for dynamic theming -->
+  <div class="system-shell" data-theme="dark">
+    
+    <header class="hub-header">
+      <div class="brand-badge">
+        <span class="status-dot"></span>
+        <h1 class="brand-title">DevPulse <span>v2.5</span></h1>
+      </div>
+
+      <!-- Pure CSS Theme Switcher (Using Attribute Selectors & Custom Properties) -->
+      <div class="theme-picker">
+        <span class="picker-label">Theme Mode:</span>
+        <label class="theme-btn">
+          <input type="radio" name="theme-select" value="dark" checked>
+          <span>Dark</span>
+        </label>
+        <label class="theme-btn">
+          <input type="radio" name="theme-select" value="emerald">
+          <span>Emerald</span>
+        </label>
+        <label class="theme-btn">
+          <input type="radio" name="theme-select" value="light">
+          <span>Light</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="hub-main">
+
+      <section class="col col-4">
+        
+        <article class="card profile-card" data-status="active">
+          <div class="card-header">
+            <span class="badge">BSCS Student</span>
+            <span class="timestamp">Session 2026</span>
+          </div>
+          <div class="user-info">
+            <h2 class="user-name">Full Stack Workstation</h2>
+            <p class="user-role">Web Engineering Lab - Task 01</p>
+          </div>
+          <div class="tag-group">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3 Architecture</span>
+            <span class="tag">Cascade Layers</span>
+            <span class="tag">No-JS Interactivity</span>
+          </div>
+        </article>
+
+        <article class="card metrics-card">
+          <h3 class="card-title">System Metrics</h3>
+          
+          <ul class="metric-list">
+            <li class="metric-item">
+              <span class="metric-name">CSS Engine Load</span>
+              <span class="metric-val">100% Valid</span>
+            </li>
+            <li class="metric-item">
+              <span class="metric-name">Flexbox / Grid</span>
+              <span class="metric-val status-disabled">Excluded</span>
+            </li>
+            <li class="metric-item">
+              <span class="metric-name">JavaScript Usage</span>
+              <span class="metric-val status-disabled">0 Lines</span>
+            </li>
+          </ul>
+        </article>
+
+      </section>
+
+      <section class="col col-8">
+
+        <article class="card console-card">
+          <div class="console-top">
+            <span class="console-title">module_concepts_manifest.css</span>
+            <span class="console-tag">Layers Active</span>
+          </div>
+          <p class="console-desc">
+            Demonstrating pure CSS architectural techniques without relying on modern layout modules or external scripts.
+          </p>
+
+          <div class="feature-box-container">
+            <div class="feature-box">
+              <h4 class="feature-title">Cascade `@layer`</h4>
+              <p class="feature-text">Explicit specificity isolation across reset, tokens, base, and components.</p>
+            </div>
+            <div class="feature-box">
+              <h4 class="feature-title">Modern Selectors</h4>
+              <p class="feature-text">Uses `:has()`, `:is()`, `:where()`, and `:not()` for complex CSS logic.</p>
+            </div>
+            <div class="feature-box">
+              <h4 class="feature-title">Scope Rescoping</h4>
+              <p class="feature-text">Local design tokens re-calculated dynamically using CSS `calc()`.</p>
+            </div>
+            <div class="feature-box">
+              <h4 class="feature-title">Pseudo Elements</h4>
+              <p class="feature-text">Decorative overlays, indicators, and labels crafted with `::before` & `::after`.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card form-card">
+          <h3 class="card-title">Lab Submission Checkpoint</h3>
+          <form class="custom-form" action="#" method="get" onclick="return false;">
+            
+            <div class="form-row">
+              <div class="field-group col-6">
+                <label for="student-id" class="field-label">Student ID</label>
+                <input type="text" id="student-id" class="field-input" placeholder="e.g. BSCS-F24-806" required>
+              </div>
+              
+            </div>
+            <div class="field-group">
+              <label for="notes" class="field-label">Implementation Notes</label>
+              <textarea id="notes" class="field-input field-textarea" placeholder="Describe layout mechanics used..."></textarea>
+            </div>
+            <div class="controls-row">
+              <label class="custom-check">
+                <input type="checkbox" checked required>
+                <span class="check-box"></span>
+                <span class="check-label">Strictly zero JavaScript utilized</span>
+              </label>
+
+              <label class="custom-check">
+                <input type="checkbox" checked required>
+                <span class="check-box"></span>
+                <span class="check-label">Strict adherence to concept limit</span>
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Verify Lab Assignment</button>
+          </form>
+        </article>
+
+      </section>
+
+    </main>
+
+    <footer class="hub-footer">
+      <p>BSCS 5th Semester &bull; Web Development Lab Work &bull; Pure CSS Implementation</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

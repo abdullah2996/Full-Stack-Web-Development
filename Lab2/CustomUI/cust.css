@@ -1,0 +1,521 @@
+/* CONCEPT 12: Cascade Layers Organization */
+@layer reset, tokens, base, layout, components, interactive;
+
+/*  CONCEPT 08, 06: Modern Reset & Box Model */
+@layer reset {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input, button, textarea {
+    font: inherit;
+  }
+}
+
+/* CONCEPT 20, 21, 23, 24: Design Tokens, Custom Properties & Theming */
+@layer tokens {
+  :root {
+    /* Color Tokens (Concept 03) */
+    --clr-bg-dark: #0f172a;
+    --clr-surface-dark: #1e293b;
+    --clr-border-dark: #334155;
+    --clr-text-dark: #f8fafc;
+    --clr-muted-dark: #94a3b8;
+    --clr-accent-dark: #38bdf8;
+
+    --clr-bg-emerald: #064e3b;
+    --clr-surface-emerald: #065f46;
+    --clr-border-emerald: #047857;
+    --clr-text-emerald: #ecfdf5;
+    --clr-muted-emerald: #a7f3d0;
+    --clr-accent-emerald: #34d399;
+
+    --clr-bg-light: #f1f5f9;
+    --clr-surface-light: #ffffff;
+    --clr-border-light: #cbd5e1;
+    --clr-text-light: #0f172a;
+    --clr-muted-light: #64748b;
+    --clr-accent-light: #0284c7;
+
+    /* Spacing & Layout Tokens (Concept 04 - Units, Concept 22 - Variables + calc) */
+    --unit-base: 1rem;
+    --spacing-sm: calc(var(--unit-base) * 0.5);
+    --spacing-md: calc(var(--unit-base) * 1.0);
+    --spacing-lg: calc(var(--unit-base) * 1.5);
+    --spacing-xl: calc(var(--unit-base) * 2.5);
+
+    /* Typography Tokens (Concept 05) */
+    --font-stack: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    --font-mono: "Cascadia Code", "Fira Code", Consolas, monospace;
+
+    /* Active Dynamic Tokens (Default: Dark Mode) */
+    --sys-bg: var(--clr-bg-dark);
+    --sys-surface: var(--clr-surface-dark);
+    --sys-border: var(--clr-border-dark);
+    --sys-text: var(--clr-text-dark);
+    --sys-muted: var(--clr-muted-dark);
+    --sys-accent: var(--clr-accent-dark);
+  }
+
+  /* CONCEPT 18: Pure CSS Theme Switcher using :has() selector */
+  :has(input[value="emerald"]:checked) {
+    --sys-bg: var(--clr-bg-emerald);
+    --sys-surface: var(--clr-surface-emerald);
+    --sys-border: var(--clr-border-emerald);
+    --sys-text: var(--clr-text-emerald);
+    --sys-muted: var(--clr-muted-emerald);
+    --sys-accent: var(--clr-accent-emerald);
+  }
+
+  :has(input[value="light"]:checked) {
+    --sys-bg: var(--clr-bg-light);
+    --sys-surface: var(--clr-surface-light);
+    --sys-border: var(--clr-border-light);
+    --sys-text: var(--clr-text-light);
+    --sys-muted: var(--clr-muted-light);
+    --sys-accent: var(--clr-accent-light);
+  }
+}
+
+/* CONCEPT 05, 13: Base Typography & Inheritance Keywords */
+@layer base {
+  body {
+    background-color: var(--sys-bg);
+    color: var(--sys-text);
+    font-family: var(--font-stack);
+    padding: var(--spacing-lg);
+  }
+
+  /* CONCEPT 19: Pseudo-element custom selection highlight */
+  ::selection {
+    background-color: var(--sys-accent);
+    color: #000000;
+  }
+}
+
+/* CONCEPT 06, 22: Box-Model & Calc-based Layout Engine (No Flex/Grid) */
+@layer layout {
+  .system-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: var(--sys-surface);
+    border: 2px solid var(--sys-border);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+  }
+
+  .hub-main {
+    margin-top: var(--spacing-lg);
+    font-size: 0; /* Cleans inline-block white-space bugs */
+  }
+
+  /* Structural Column System using inline-block + calc() */
+  .col {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem; /* Restores font size */
+  }
+
+  .col-4 {
+    width: 33.333%;
+    padding-right: var(--spacing-md);
+  }
+
+  .col-6 {
+    width: calc(50% - var(--spacing-sm));
+    display: inline-block;
+  }
+
+  .col-8 {
+    width: 66.666%;
+    padding-left: var(--spacing-md);
+  }
+}
+
+/* COMPONENTS: Header, Cards, Badges, Metrics */
+@layer components {
+  /* Header Component */
+  .hub-header {
+    border-bottom: 2px solid var(--sys-border);
+    padding-bottom: var(--spacing-md);
+    font-size: 0;
+  }
+
+  .brand-badge {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+
+  /* CONCEPT 19: Status dot built with pseudo-element */
+  .status-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--sys-accent);
+    border-radius: 50%;
+    margin-right: var(--spacing-sm);
+  }
+
+  .brand-title {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+
+  .brand-title span {
+    font-size: 0.85rem;
+    color: var(--sys-accent);
+    background-color: var(--sys-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--sys-border);
+  }
+
+  /* Theme Switcher Component */
+  .theme-picker {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 0.9rem;
+  }
+
+  .picker-label {
+    color: var(--sys-muted);
+    margin-right: var(--spacing-sm);
+  }
+
+  .theme-btn {
+    display: inline-block;
+    margin-left: 4px;
+    cursor: pointer;
+  }
+
+  /* CONCEPT 15 & 17: Attribute & State Pseudo-classes */
+  .theme-btn input[type="radio"] {
+    display: none;
+  }
+
+  .theme-btn span {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid var(--sys-border);
+    border-radius: 6px;
+    background-color: var(--sys-bg);
+    color: var(--sys-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .theme-btn input[type="radio"]:checked + span {
+    background-color: var(--sys-accent);
+    color: #000000;
+    border-color: var(--sys-accent);
+  }
+
+  /* Card Component Architecture */
+  .card {
+    background-color: var(--sys-bg);
+    border: 1px solid var(--sys-border);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .card-header {
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* CONCEPT 16: Structural Pseudo-classes & Badges */
+  .badge {
+    display: inline-block;
+    background-color: var(--sys-surface);
+    color: var(--sys-accent);
+    border: 1px solid var(--sys-accent);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .timestamp {
+    float: right;
+    font-size: 0.8rem;
+    color: var(--sys-muted);
+  }
+
+  .user-name {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+  }
+
+  .user-role {
+    color: var(--sys-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* CONCEPT 14: Grouping & Combinator Selectors */
+  .tag-group {
+    border-top: 1px dashed var(--sys-border);
+    padding-top: var(--spacing-sm);
+  }
+
+  .tag {
+    display: inline-block;
+    background-color: var(--sys-surface);
+    border: 1px solid var(--sys-border);
+    color: var(--sys-text);
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-top: 6px;
+  }
+
+  /* CONCEPT 16: Targeting specific tags via structural pseudo-classes */
+  .tag:first-child {
+    border-color: var(--sys-accent);
+  }
+
+  /* Metrics List */
+  .card-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--sys-accent);
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+
+  .metric-list {
+    list-style: none;
+    margin-top: var(--spacing-sm);
+  }
+
+  /* CONCEPT 16: Even/Odd Striping using :nth-child() */
+  .metric-item {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--sys-border);
+    font-size: 0.85rem;
+  }
+
+  .metric-item:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .metric-name {
+    color: var(--sys-muted);
+  }
+
+  .metric-val {
+    float: right;
+    font-weight: 600;
+    color: var(--sys-accent);
+  }
+
+  .metric-val.status-disabled {
+    color: var(--sys-muted);
+    text-decoration: line-through;
+  }
+
+  /* Console / Capabilities Card */
+  .console-card {
+    background-color: var(--sys-bg);
+    border-left: 4px solid var(--sys-accent);
+  }
+
+  .console-top {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--sys-accent);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .console-tag {
+    float: right;
+    color: var(--sys-muted);
+  }
+
+  .console-desc {
+    font-size: 0.9rem;
+    color: var(--sys-muted);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Feature Grid (Calc + Inline Block Layout) */
+  .feature-box-container {
+    font-size: 0;
+  }
+
+  .feature-box {
+    display: inline-block;
+    width: calc(50% - var(--spacing-sm));
+    background-color: var(--sys-surface);
+    border: 1px solid var(--sys-border);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 6px;
+    vertical-align: top;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* CONCEPT 14: Child combinators */
+  .feature-box-container > .feature-box:nth-child(odd) {
+    margin-right: calc(var(--spacing-sm) * 2);
+  }
+
+  .feature-title {
+    font-size: 0.9rem;
+    color: var(--sys-text);
+    margin-bottom: 2px;
+  }
+
+  .feature-text {
+    font-size: 0.78rem;
+    color: var(--sys-muted);
+  }
+
+  /* Custom Forms & Validation (Concept 15, 17, 18) */
+  .custom-form {
+    margin-top: var(--spacing-sm);
+  }
+
+  .form-row {
+    font-size: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .field-group {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .field-group.col-6:first-child {
+    margin-right: calc(var(--spacing-sm) * 2);
+  }
+
+  .field-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--sys-muted);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .field-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--sys-surface);
+    border: 1px solid var(--sys-border);
+    border-radius: 6px;
+    color: var(--sys-text);
+    font-size: 0.85rem;
+    outline: none;
+  }
+
+  .field-textarea {
+    resize: none;
+    height: 70px;
+  }
+
+  /* CONCEPT 17 & 18: :focus state and :not() pseudo-class */
+  .field-input:focus {
+    border-color: var(--sys-accent);
+    background-color: var(--sys-bg);
+  }
+
+  .field-input:read-only {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .controls-row {
+    margin: var(--spacing-md) 0;
+  }
+
+  .custom-check {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+  .custom-check input[type="checkbox"] {
+    display: none;
+  }
+
+  /* CONCEPT 19: Custom checkbox styled with pseudo elements */
+  .check-box {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--sys-border);
+    border-radius: 3px;
+    background-color: var(--sys-surface);
+    vertical-align: middle;
+    margin-right: 8px;
+    position: relative;
+  }
+
+  .custom-check input[type="checkbox"]:checked + .check-box {
+    background-color: var(--sys-accent);
+    border-color: var(--sys-accent);
+  }
+
+  .custom-check input[type="checkbox"]:checked + .check-box::after {
+    content: "✓";
+    position: absolute;
+    top: -3px;
+    left: 2px;
+    font-size: 11px;
+    color: #000000;
+    font-weight: bold;
+  }
+
+  .check-label {
+    vertical-align: middle;
+    color: var(--sys-muted);
+  }
+
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--sys-accent);
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .submit-btn:hover {
+    opacity: 0.9;
+  }
+
+  .submit-btn:active {
+    opacity: 0.75;
+  }
+
+  /* Footer */
+  .hub-footer {
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid var(--sys-border);
+    padding-top: var(--spacing-md);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--sys-muted);
+  }
+}
