@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sell with us | Nila Bazaar</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg nb-nav sticky-top"><div class="container">
+  <a class="navbar-brand" href="index.html"><span class="brand-dot"></span>Nila Bazaar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navMenu">
+    <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li><li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li><li class="nav-item"><a class="nav-link active" href="add-product.html">Sell with us</a></li></ul>
+    <div class="d-flex align-items-center gap-2 py-2 py-lg-0">
+      <a href="login.html" class="btn btn-line-light btn-sm">Login</a>
+      <a href="signup.html" class="btn btn-gold btn-sm">Sign up</a>
+      <button type="button" class="cart-btn ms-1" data-bs-toggle="offcanvas" data-bs-target="#miniCart" aria-controls="miniCart" aria-label="Open cart"><i class="bi bi-bag"></i><span id="cartBadge">3</span></button>
+    </div>
+  </div>
+</div></nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart" aria-labelledby="miniCartLabel">
+  <div class="offcanvas-header"><h5 class="offcanvas-title" id="miniCartLabel">Your cart (3 items)</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+  <div class="offcanvas-body d-flex flex-column">
+    <ul class="list-group list-group-flush mb-3"><li class="list-group-item d-flex align-items-center gap-3"><span class="cart-thumb tone-1" style="width:52px;height:52px;font-size:1.6rem">🏺</span><span class="flex-grow-1"><b class="d-block small">Multani Blue Pottery Vase</b><small class="text-muted">Qty 1</small></span><b>Rs. 2,800</b></li><li class="list-group-item d-flex align-items-center gap-3"><span class="cart-thumb tone-2" style="width:52px;height:52px;font-size:1.6rem">🛏️</span><span class="flex-grow-1"><b class="d-block small">Ralli Patchwork Quilt</b><small class="text-muted">Qty 1</small></span><b>Rs. 7,500</b></li><li class="list-group-item d-flex align-items-center gap-3"><span class="cart-thumb tone-1" style="width:52px;height:52px;font-size:1.6rem">☕</span><span class="flex-grow-1"><b class="d-block small">Blue Pottery Mug Pair</b><small class="text-muted">Qty 2</small></span><b>Rs. 2,800</b></li></ul>
+    <div class="mt-auto"><div class="d-flex justify-content-between fw-bold mb-3"><span>Subtotal</span><span>Rs. 13,100</span></div>
+      <a href="cart.html" class="btn btn-line w-100 mb-2">View cart</a><a href="checkout.html" class="btn btn-cobalt w-100">Checkout</a></div>
+  </div>
+</div>
+<div class="page-banner"><div class="container"><h1>Add your product</h1><p class="mb-0 text-muted">Fill in the details and your craft is ready to list.</p></div></div>
+<section class="section"><div class="container"><div class="row g-4">
+  <div class="col-lg-8">
+    <form action="products.html" class="form-card">
+      <h4 class="fw-bold mb-3">Product details</h4>
+      <div class="mb-3"><label class="form-label" for="pname">Product name</label><input type="text" id="pname" name="name" class="form-control" required minlength="3" placeholder="e.g. Hand painted diya set"></div>
+      <div class="row">
+        <div class="col-md-6 mb-3"><label class="form-label" for="cat">Category</label><select id="cat" name="category" class="form-select" required><option value="">Select category</option><option>Pottery</option><option>Home Decor</option><option>Clothing</option><option>Footwear</option><option>Lighting</option><option>Jewellery</option></select></div>
+        <div class="col-md-6 mb-3"><label class="form-label" for="city">Made in</label><select id="city" name="city" class="form-select" required><option value="">Select city</option><option>Multan</option><option>Peshawar</option><option>Hala (Sindh)</option><option>Srinagar / Kashmir</option><option>Gujrat</option><option>Other</option></select></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3"><label class="form-label" for="price">Price</label><div class="input-group"><span class="input-group-text">Rs.</span><input type="number" id="price" name="price" class="form-control" min="100" required></div></div>
+        <div class="col-md-6 mb-3"><label class="form-label" for="stock">Stock available</label><input type="number" id="stock" name="stock" class="form-control" min="1" value="1" required></div>
+      </div>
+      <div class="mb-3"><label class="form-label" for="desc">Description</label><textarea id="desc" name="description" rows="4" class="form-control" required minlength="20" placeholder="Tell buyers about the material, size and how it is made."></textarea></div>
+      <div class="mb-4"><label class="form-label" for="img">Product photo</label><input type="file" id="img" name="photo" class="form-control" accept="image/*"></div>
+      <button class="btn btn-cobalt btn-lg">List my product</button>
+    </form>
+  </div>
+  <div class="col-lg-4"><div class="review-card"><h5>Tips for a good listing</h5><ul class="tips mt-3 mb-0">
+    <li>Use a clear photo in daylight.</li><li>Write the size in inches or cm.</li><li>Mention the material honestly.</li><li>Price should include your effort.</li></ul></div></div>
+</div></div></section>
+<!-- footer -->
+<footer class="footer"><div class="container"><div class="row g-4">
+  <div class="col-lg-5"><h5 class="text-white"><span class="brand-dot"></span>Nila Bazaar</h5>
+    <p class="mt-2">Handmade crafts from Pakistani artisans. Built for the Full Stack Web Development lab, BSCS 5th semester.</p></div>
+  <div class="col-6 col-lg-3"><h6>Shop</h6><ul class="list-unstyled"><li><a href="products.html">All products</a></li><li><a href="cart.html">Your cart</a></li><li><a href="reviews.html">Reviews</a></li></ul></div>
+  <div class="col-6 col-lg-4"><h6>Account</h6><ul class="list-unstyled"><li><a href="login.html">Login</a></li><li><a href="signup.html">Create account</a></li><li><a href="add-product.html">Add a product</a></li></ul></div>
+</div><hr class="border-secondary"><small>&copy; 2026 Nila Bazaar. HTML, CSS and Bootstrap 5 only.</small></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

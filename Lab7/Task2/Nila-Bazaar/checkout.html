@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | Nila Bazaar</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg nb-nav sticky-top"><div class="container">
+  <a class="navbar-brand" href="index.html"><span class="brand-dot"></span>Nila Bazaar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navMenu">
+    <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="products.html">Shop</a></li><li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li><li class="nav-item"><a class="nav-link" href="add-product.html">Sell with us</a></li></ul>
+    <div class="d-flex align-items-center gap-2 py-2 py-lg-0">
+      <a href="login.html" class="btn btn-line-light btn-sm">Login</a>
+      <a href="signup.html" class="btn btn-gold btn-sm">Sign up</a>
+      <button type="button" class="cart-btn ms-1" data-bs-toggle="offcanvas" data-bs-target="#miniCart" aria-controls="miniCart" aria-label="Open cart"><i class="bi bi-bag"></i><span id="cartBadge">3</span></button>
+    </div>
+  </div>
+</div></nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart" aria-labelledby="miniCartLabel">
+  <div class="offcanvas-header"><h5 class="offcanvas-title" id="miniCartLabel">Your cart (3 items)</h5><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+  <div class="offcanvas-body d-flex flex-column">
+    <ul class="list-group list-group-flush mb-3"><li class="list-group-item d-flex align-items-center gap-3"><span class="cart-thumb tone-1" style="width:52px;height:52px;font-size:1.6rem">🏺</span><span class="flex-grow-1"><b class="d-block small">Multani Blue Pottery Vase</b><small class="text-muted">Qty 1</small></span><b>Rs. 2,800</b></li><li class="list-group-item d-flex align-items-center gap-3"><span class="cart-thumb tone-2" style="width:52px;height:52px;font-size:1.6rem">🛏️</span><span class="flex-grow-1"><b class="d-block small">Ralli Patchwork Quilt</b><small class="text-muted">Qty 1</small></span><b>Rs. 7,500</b></li><li class="list-group-item d-flex align-items-center gap-3"><span class="cart-thumb tone-1" style="width:52px;height:52px;font-size:1.6rem">☕</span><span class="flex-grow-1"><b class="d-block small">Blue Pottery Mug Pair</b><small class="text-muted">Qty 2</small></span><b>Rs. 2,800</b></li></ul>
+    <div class="mt-auto"><div class="d-flex justify-content-between fw-bold mb-3"><span>Subtotal</span><span>Rs. 13,100</span></div>
+      <a href="cart.html" class="btn btn-line w-100 mb-2">View cart</a><a href="checkout.html" class="btn btn-cobalt w-100">Checkout</a></div>
+  </div>
+</div>
+<div class="page-banner"><div class="container"><h1>Checkout</h1><p class="mb-0 text-muted">Almost done. Tell us where to send your order.</p></div></div>
+<section class="section"><div class="container">
+  <form action="order-success.html" class="row g-4">
+    <div class="col-lg-8">
+      <div class="form-card mb-4"><h5 class="fw-bold mb-3">1. Delivery details</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3"><label class="form-label" for="cname">Full name</label><input type="text" id="cname" name="name" class="form-control" required></div>
+          <div class="col-md-6 mb-3"><label class="form-label" for="cphone">Phone</label><input type="tel" id="cphone" name="phone" class="form-control" required pattern="03[0-9]{2}-?[0-9]{7}" placeholder="03XX-XXXXXXX"></div>
+        </div>
+        <div class="mb-3"><label class="form-label" for="addr">Street address</label><input type="text" id="addr" name="address" class="form-control" required placeholder="House no, street, area"></div>
+        <div class="row">
+          <div class="col-md-6 mb-3"><label class="form-label" for="ccity">City</label><select id="ccity" name="city" class="form-select" required><option value="">Select city</option><option>Karachi</option><option>Lahore</option><option>Islamabad</option><option>Multan</option><option>Peshawar</option><option>Quetta</option></select></div>
+          <div class="col-md-6 mb-3"><label class="form-label" for="zip">Postal code</label><input type="text" id="zip" name="zip" class="form-control" pattern="[0-9]{5}" placeholder="75500"></div>
+        </div>
+      </div>
+      <div class="form-card"><h5 class="fw-bold mb-3">2. Payment method</h5>
+        <div class="accordion" id="payAcc">
+          <div class="accordion-item"><h2 class="accordion-header"><div class="form-check pay-head"><input class="form-check-input" type="radio" name="payment" id="p-cod" value="cod" data-bs-toggle="collapse" data-bs-target="#c-cod" checked><label class="form-check-label w-100" for="p-cod"><i class="bi bi-cash-coin"></i> Cash on delivery</label></div></h2><div id="c-cod" class="accordion-collapse collapse show" data-bs-parent="#payAcc"><div class="accordion-body">You will pay the rider in cash when the parcel arrives.</div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><div class="form-check pay-head"><input class="form-check-input" type="radio" name="payment" id="p-jazz" value="jazz" data-bs-toggle="collapse" data-bs-target="#c-jazz"><label class="form-check-label w-100" for="p-jazz"><i class="bi bi-phone"></i> JazzCash</label></div></h2><div id="c-jazz" class="accordion-collapse collapse" data-bs-parent="#payAcc"><div class="accordion-body">Send the amount to 0300-1234567 and keep the receipt ready.</div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><div class="form-check pay-head"><input class="form-check-input" type="radio" name="payment" id="p-easy" value="easy" data-bs-toggle="collapse" data-bs-target="#c-easy"><label class="form-check-label w-100" for="p-easy"><i class="bi bi-wallet2"></i> EasyPaisa</label></div></h2><div id="c-easy" class="accordion-collapse collapse" data-bs-parent="#payAcc"><div class="accordion-body">Send the amount to 0345-1234567 and keep the receipt ready.</div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><div class="form-check pay-head"><input class="form-check-input" type="radio" name="payment" id="p-card" value="card" data-bs-toggle="collapse" data-bs-target="#c-card"><label class="form-check-label w-100" for="p-card"><i class="bi bi-credit-card"></i> Debit / credit card</label></div></h2><div id="c-card" class="accordion-collapse collapse" data-bs-parent="#payAcc"><div class="accordion-body"><div class="row"><div class="col-md-6 mb-3"><label class="form-label" for="cn">Card number</label><input type="text" id="cn" class="form-control" placeholder="1234 5678 9012 3456" inputmode="numeric"></div><div class="col-6 col-md-3 mb-3"><label class="form-label" for="ce">Expiry</label><input type="text" id="ce" class="form-control" placeholder="MM/YY"></div><div class="col-6 col-md-3 mb-3"><label class="form-label" for="cv">CVV</label><input type="password" id="cv" class="form-control" maxlength="3" placeholder="123"></div></div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"><div class="summary"><h5 class="mb-3">Your order</h5><div class="d-flex justify-content-between small mb-2"><span>🏺 Multani Blue Pottery Vase × 1</span><span>Rs. 2,800</span></div><div class="d-flex justify-content-between small mb-2"><span>🛏️ Ralli Patchwork Quilt × 1</span><span>Rs. 7,500</span></div><div class="d-flex justify-content-between small mb-2"><span>☕ Blue Pottery Mug Pair × 2</span><span>Rs. 2,800</span></div><hr>
+      <div class="d-flex justify-content-between mb-1"><span>Delivery</span><span>Free</span></div>
+      <div class="d-flex justify-content-between fw-bold fs-5 mb-3"><span>Total</span><span>Rs. 13,100</span></div>
+      <button class="btn btn-gold btn-lg w-100">Place order</button><a href="cart.html" class="btn btn-line w-100 mt-2">Back to cart</a></div></div>
+  </form>
+</div></section>
+<footer class="footer"><div class="container"><div class="row g-4">
+  <div class="col-lg-5"><h5 class="text-white"><span class="brand-dot"></span>Nila Bazaar</h5>
+    <p class="mt-2">Handmade crafts from Pakistani artisans. Built for the Full Stack Web Development lab, BSCS 5th semester.</p></div>
+  <div class="col-6 col-lg-3"><h6>Shop</h6><ul class="list-unstyled"><li><a href="products.html">All products</a></li><li><a href="cart.html">Your cart</a></li><li><a href="reviews.html">Reviews</a></li></ul></div>
+  <div class="col-6 col-lg-4"><h6>Account</h6><ul class="list-unstyled"><li><a href="login.html">Login</a></li><li><a href="signup.html">Create account</a></li><li><a href="add-product.html">Add a product</a></li></ul></div>
+</div><hr class="border-secondary"><small>&copy; 2026 Nila Bazaar. HTML, CSS and Bootstrap 5 only.</small></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

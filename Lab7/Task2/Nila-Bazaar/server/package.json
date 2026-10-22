@@ -1,0 +1,11 @@
+{
+  "name": "nila-bazaar-api",
+  "version": "1.0.0",
+  "description": "REST API for the Nila Bazaar UI using plain Node.js (http, fs, crypto) - no packages needed",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node test/smoke.js"
+  },
+  "engines": { "node": ">=20" }
+}
